@@ -3,15 +3,15 @@ import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
 
-var App;
+var TodoMVCApp;
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
-App = Ember.Application.extend({
+TodoMVCApp = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   Resolver: Resolver
 });
 
-loadInitializers(App, config.modulePrefix);
+loadInitializers(TodoMVCApp, config.modulePrefix);
 
-export default App;
+export default TodoMVCApp;
