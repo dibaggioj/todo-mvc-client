@@ -18,7 +18,7 @@ export default Ember.Route.extend({
             // Save the new model
             todo.save();
         },
-        acceptChanges: function (todo) {
+        updateTodo: function (todo) {
             if (Ember.isEmpty(todo.get('title'))) {
                 this.send('deleteTodo', todo);
             } else {
