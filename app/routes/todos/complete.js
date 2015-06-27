@@ -4,6 +4,7 @@ export default Ember.Route.extend({
     model: function () {
         console.log("model hook called for complete route");
         return this.store.filter('todo', function (todo) {
+            console.log(todo);
             return todo.get('isCompleted');
         });
     },
