@@ -26,5 +26,17 @@ export default Ember.Component.extend({
     inflection: Ember.computed('remaining', function () {
         var remaining = this.get('remaining');
         return (remaining !== 1) ? "s" : "";
-    })
+    }),
+    allAreDone: function(key, value) {
+        var model = this.get('model');
+        console.log(key + ": " + value);
+        if (value === undefined) {
+            return model.get('length') > 0 && model.isEvery('isCompleted', true);
+        }
+        else {
+            model.setEach('isCompleted', value);
+            model.invoke('save');
+            return value;
+        }
+    }.property('@each.isCompleted'),
 });
