@@ -1,6 +1,9 @@
 import DS from 'ember-data';
 
-//export default DS.RESTAdapter.extend({
-//});
+export default DS.RESTAdapter.extend({
+    host: "http://localhost:8000",
+    namespace: "api"
+    //headers: {}
+});
 
-export default DS.FixtureAdapter.extend({});
+//export default DS.FixtureAdapter.extend({});
