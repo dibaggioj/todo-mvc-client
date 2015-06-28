@@ -7,21 +7,21 @@ export default Ember.Component.extend({
             this.sendAction('createTodo', newTitle);
         },
         clearCompleted: function () {
-            var completed = this.get('model').filterBy('isCompleted', true);
+            var completed = this.get('model').filterBy('is_completed', true);
             completed.invoke('deleteRecord');
             completed.invoke('save');
         }
     },
-    completed: Ember.computed('model.@each.isCompleted', function () {
+    completed: Ember.computed('model.@each.is_completed', function () {
         var model = this.get('model');
-        return model.filterBy('isCompleted', true).get('length');
+        return model.filterBy('is_completed', true).get('length');
     }),
     hasCompleted: Ember.computed('completed', function () {
         return this.get('completed') > 0;
     }),
-    remaining: Ember.computed('model.@each.isCompleted', function() {
+    remaining: Ember.computed('model.@each.is_completed', function() {
         var model = this.get('model');
-        return model.filterBy('isCompleted', false).get('length');
+        return model.filterBy('is_completed', false).get('length');
     }),
     inflection: Ember.computed('remaining', function () {
         var remaining = this.get('remaining');
@@ -31,12 +31,12 @@ export default Ember.Component.extend({
         var model = this.get('model');
         console.log(key + ": " + value);
         if (value === undefined) {
-            return model.get('length') > 0 && model.isEvery('isCompleted', true);
+            return model.get('length') > 0 && model.isEvery('is_completed', true);
         }
         else {
-            model.setEach('isCompleted', value);
+            model.setEach('is_completed', value);
             model.invoke('save');
             return value;
         }
-    }.property('@each.isCompleted'),
+    }.property('@each.is_completed'),
 });

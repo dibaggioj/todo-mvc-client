@@ -412,3 +412,7 @@ label[for='toggle-all'] {
 .hidden{
 	display:none;
 }
+
+.date-time {
+    font-weight: 200;
+}

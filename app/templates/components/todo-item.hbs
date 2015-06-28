@@ -6,7 +6,7 @@
             insert-newline="changeTodo"}}
     {{else}}
         {{input type="checkbox" checked=todo.is_completed class="toggle"}}
-        <label {{action "editTodo" on="click"}}>{{todo.title}}</label>
+        <label {{action "editTodo" on="click"}}>{{todo.title}}<em class="date-time"> - {{todo.date_time}}</em></label>
         <button {{action "deleteTodo" todo}} class="destroy"></button>
     {{/if}}
 </li>
