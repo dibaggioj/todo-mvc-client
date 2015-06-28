@@ -11,7 +11,7 @@ export default Ember.Route.extend({
             // Create the new todo model
             var todo = this.store.createRecord('todo', {
                 title: newTitle,
-                isCompleted: false
+                is_completed: false
             });
 
             // Clear the "New Todo" text field
