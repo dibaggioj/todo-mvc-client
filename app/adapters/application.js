@@ -1,33 +1,25 @@
-import DS from 'ember-data';
+//import ApplicationAdapter from 'ember-jsonapi-resources/adapters/application';
+//
+//export default ApplicationAdapter.extend({
+//  type: 'application',
+//
+//  url: /*config.APP.API_PATH + */ '/applications',
+//
+//  /*fetchUrl: function(url) {
+//    const proxy = config.APP.API_HOST_PROXY;
+//    const host = config.APP.API_HOST;
+//    if (proxy && host) {
+//      url = url.replace(proxy, host);
+//    }
+//    return url;
+//  }*/
+//});
 
-var version = 1;
+import config from '../config/environment';
 
-function namespaceAndVersion (v) {
-    return "api" + "/v" + v;
-}
-
-export default DS.RESTAdapter.extend({
-    host: "http://localhost:8000",
-    namespace: namespaceAndVersion(version)
-    //headers: {}
+// app/adapters/application.js
+import JsonApiAdapter from 'ember-json-api/json-api-adapter';
+export default JsonApiAdapter.extend({
+    host: config.APP.API.PATH,
+    url: config.APP.API.PATH,
 });
-
-//export default DS.JsonApiAdapter.extend({
-//    host: "http://localhost:8000",
-//    namespace: namespaceAndVersion(version)
-//    //headers: {}
-//});
-
-//
-//import JsonApiAdapter from 'ember-json-api/json-api-adapter';
-//
-//export default JsonApiAdapter.extend({
-//    host: "http://localhost:8000",
-//    namespace: "api" + "/v1"
-//    //headers: {}
-//});
-//
-////import JsonApiAdapter from 'ember-json-api/json-api-adapter';
-////export default JsonApiAdapter;
-//
-////export default DS.FixtureAdapter.extend({});
